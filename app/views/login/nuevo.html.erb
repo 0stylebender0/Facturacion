@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio de Sesión - Facturación Electrónica</title>
+    </head>
+    <body>
+        <div class="login-container">
+        <h2>Registro de Cliente</h2>
+        <p>Por favor, completa tus datos para registrarte</p>
+
+        <% if alert %>
+            <p style="color: red;"><%= alert %></p>
+        <% end %>
+        <% if notice %>
+            <p style="color: green;"><%= notice %></p>
+        <% end %>
+
+        <%= form_with url: crear_cliente_path, method: :post, local: true, class: "form" do |f| %>
+            <div class="form-group">
+                <%= text_field_tag :nombre, nil, placeholder: "Nombre", required: true, class: "input-color" %>
+            </div>
+            <div class="form-group">
+                <%= email_field_tag :correo, nil, placeholder: "Correo Electrónico", required: true, class: "input-color" %>
+            </div>
+            <div class="form-group">
+                <%= text_field_tag :pwd, nil, placeholder: "Teléfono", required: true, class: "input-color" %>
+            </div>
+            <div class="form-group">
+                <%= password_field_tag :password, nil, placeholder: "Contraseña", required: true, class: "input-color" %>
+            </div>
+            <div class="form-group">
+                <%= submit_tag "Crear", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+        <a href="/login/cliente">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+    </body>
+</html>
