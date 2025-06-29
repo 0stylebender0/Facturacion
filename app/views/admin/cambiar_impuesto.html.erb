@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Impuestos - <%= @producto['Nombre'] %></title>
+    </head>
+    <body>
+        <div class="admin-reset admin-container admin-stock-container">
+            <h1 class="admin-title">Impuestos para <%= @producto['Nombre'] %></h1>
+            <table class="admin-table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Porcentaje</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @impuestos.each do |impuesto| %>
+                    <tr>
+                    <td><%= impuesto['Nombre'] %></td>
+                    <td><%= number_with_precision(impuesto['Porcentaje'], precision: 2) %>%</td>
+                    <td>
+                        <% if @impuestos_producto.include?(impuesto['Id']) %>
+                        <%= form_with url: admin_eliminar_impuesto_path, method: :post, local: true do |f| %>
+                            <%= hidden_field_tag :id_producto, @producto['Id'] %>
+                            <%= hidden_field_tag :id_impuesto, impuesto['Id'] %>
+                            <%= submit_tag "Eliminar", class: "admin-btn-delete" %>
+                        <% end %>
+                        <% else %>
+                        <%= form_with url: admin_agregar_impuesto_path, method: :post, local: true do |f| %>
+                            <%= hidden_field_tag :id_producto, @producto['Id'] %>
+                            <%= hidden_field_tag :id_impuesto, impuesto['Id'] %>
+                            <%= submit_tag "Agregar", class: "admin-btn-add" %>
+                        <% end %>
+                        <% end %>
+                    </td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+            <form action="/admin/stock" method="get">
+                <button type="submit" class="admin-btn admin-btn-back">Volver</button>
+            </form>
+        </div>
+    </body>
+</html>

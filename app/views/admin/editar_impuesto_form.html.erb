@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Impuesto</title>
+</head>
+<body>
+  <div class="admin-reset admin-container admin-stock-container">
+    <h1 class="admin-title">Editar Impuesto</h1>
+
+    <% impuesto = ActiveRecord::Base.connection.execute("SELECT * FROM Impuesto WHERE Id = #{params[:id]}").first %>
+
+    <%= form_with url: admin_actualizar_impuesto_path(impuesto['Id']), method: :post, local: true, class: "admin-form" do |f| %>
+      <div class="admin-form-group">
+        <%= text_field_tag :nombre, impuesto['Nombre'], placeholder: "Nombre", required: true, class: "admin-form-input", readonly: true %>
+        <%= number_field_tag :porcentaje, impuesto['Porcentaje'], placeholder: "Porcentaje", min: 0, step: 0.01, required: true, class: "admin-form-input" %>
+        <%= submit_tag "Actualizar", class: "admin-btn-edit" %>
+      </div>
+    <% end %>
+
+    <form action="/admin/impuesto" method="get">
+      <button type="submit" class="admin-btn admin-btn-back">Volver</button>
+    </form>
+  </div>
+</body>
+</html>

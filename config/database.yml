@@ -1,0 +1,19 @@
+default: &default
+  adapter: sqlserver
+  encoding: utf8
+  host: AdminFacturacion.mssql.somee.com
+  database: AdminFacturacion
+  username: user_test_SQLLogin_2
+  password: xwqa7s9mx1
+  port: 1433
+  azure: false
+  trust_server_certificate: true
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
