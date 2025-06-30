@@ -7,6 +7,9 @@
     </head>
     <body>
         <div class="admin-reset admin-container admin-stock-container">
+            <% if flash[:alert] %>
+                <p style="color: red;"><%= flash[:alert] %></p>
+            <% end %>
             <h1 class="admin-title">Lista de Productos en Stock</h1>
             <table class="admin-table">
                 <thead>
@@ -41,9 +44,8 @@
                 <% end %>
                 </tbody>
             </table>
-            <!-- Nueva sección para mostrar el carrito -->
-            <h2 class="admin-title">Productos en el Carrito</h2>
 
+            <h2 class="admin-title">Productos en el Carrito</h2>
             <% if session[:carrito].present? && session[:carrito].any? %>
             <table class="admin-table">
                 <thead>
@@ -66,9 +68,8 @@
                 </tbody>
             </table>
             <% else %>
-            <p>No hay productos en el carrito.</p>
+                <p>No hay productos en el carrito.</p>
             <% end %>
-
 
             <% if session[:carrito].present? && session[:carrito].any? %>
                 <form action="<%= limpiar_carrito_path %>" method="post" style="margin-top: 10px;">

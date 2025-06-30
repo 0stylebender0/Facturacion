@@ -7,6 +7,9 @@
     </head>
     <body>
       <div class="admin-reset admin-container admin-stock-container">
+        <% if flash[:alert] %>
+          <p style="color: red;"><%= flash[:alert] %></p>
+        <% end %>
         <h1 class="admin-title">Lista de Productos en Stock</h1>
 
         <table class="admin-table">

@@ -2,7 +2,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #121212;
+  background: #020024;
+  background: radial-gradient(circle,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(60, 1, 102, 1) 100%);
   margin: 0;
   padding: 0;
   display: flex;
@@ -13,11 +14,11 @@ body {
 }
 
 .login-container {
-  background-color: #181818;
   padding: 2.5rem;
-  border-radius: 10px;
+  border-radius: 100px;
+  backdrop-filter: sepia(50%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 1000%;
   max-width: 400px;
   text-align: center;
 }

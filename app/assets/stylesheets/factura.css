@@ -4,7 +4,8 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #181818;
+    backdrop-filter: sepia(50%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #cccccc;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

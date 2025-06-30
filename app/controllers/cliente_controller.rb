@@ -43,6 +43,13 @@ class ClienteController < ApplicationController
       producto["precio"] = producto["Precio"].to_f
       producto["existencia"] = producto["Stock"].to_i
     end
+
+    @productos.each do |producto|
+      if producto['existencia'] <= 10
+        flash.now[:alert] = "Stock bajo."
+        break
+      end
+    end
   end
 
   def impuestoComprar

@@ -12,7 +12,8 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #181818;
+  backdrop-filter: sepia(50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.08);
   text-align: center;
