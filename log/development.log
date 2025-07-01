@@ -19400,3 +19400,5 @@ Processing by ClienteController#ver_factura as HTML
 Completed 200 OK in 877ms (Views: 4.9ms | ActiveRecord: 180.6ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (91.7ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations] ORDER BY [schema_migrations].[version] ASC /*application='Facturacion'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (88.7ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations] ORDER BY [schema_migrations].[version] ASC /*application='Facturacion'*/[0m

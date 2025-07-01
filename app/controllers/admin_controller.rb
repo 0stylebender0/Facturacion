@@ -55,7 +55,7 @@ class AdminController < ApplicationController
       "INSERT INTO ProductoImpuesto (IdProducto, IdImpuesto) 
       VALUES (#{params[:id_producto]}, #{params[:id_impuesto]})"
     )
-    redirect_to admin_editar_impuesto_path(id: params[:id_producto])
+    redirect_to admin_cambiar_impuesto_path(params[:id_producto])
   end
 
   def eliminar_impuesto
@@ -64,7 +64,7 @@ class AdminController < ApplicationController
       WHERE IdProducto = #{params[:id_producto]} 
       AND IdImpuesto = #{params[:id_impuesto]}"
     )
-    redirect_to admin_editar_impuesto_path(id: params[:id_producto])
+    redirect_to admin_cambiar_impuesto_path(params[:id_producto])
   end
 
     # ================ Movimientos de Stock =================#
